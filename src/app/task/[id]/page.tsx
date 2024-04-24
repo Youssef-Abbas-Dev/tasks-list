@@ -2,6 +2,7 @@ import prisma from "@/utils/db";
 import Link from "next/link";
 import StatusBadge from "@/components/StatusBadge";
 import { notFound } from "next/navigation";
+import { deleteTask } from "@/utils/actions";
 
 interface TaskDetailsPageProps {
     params: { id: string }
@@ -13,6 +14,8 @@ const TaskDetailsPage = async ({ params }: TaskDetailsPageProps) => {
     });
 
     if (!task) notFound();
+
+    //const deleteTaskHandler = deleteTask.bind(null, task.id);
 
     return (
         <section>
@@ -27,7 +30,8 @@ const TaskDetailsPage = async ({ params }: TaskDetailsPageProps) => {
                     >
                         Edit
                     </Link>
-                    <form action="">
+                    <form action={deleteTask}>
+                        <input type="hidden" name="id" value={task.id} />
                         <button type="submit" className="bg-red-700 hover:bg-red-600 transition-colors rounded-lg py-1 px-2 text-xl">
                             Delete
                         </button>
