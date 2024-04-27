@@ -58,4 +58,4 @@ const EditTaskPage = async ({ params }: EditTaskPageProps) => {
     )
 }
 
-export default EditTaskPage
+export default EditTaskPage;

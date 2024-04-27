@@ -19,7 +19,7 @@ export async function createTask({ title, description }: CreateTaskDto) {
         throw new Error("could not create the task, please try again");
     }
 
-    revalidatePath("/");
+    //revalidatePath("/");
     redirect("/");
 }
 
@@ -34,7 +34,7 @@ export async function deleteTask(formData: FormData) {
         throw new Error("could not delete the task, please try again");
     }
 
-    revalidatePath("/");
+    //revalidatePath("/");
     redirect("/");
 }
 
@@ -59,7 +59,7 @@ export async function updateTask(formData: FormData) {
         throw new Error("could not update the task, please try again");
     }
 
-    revalidatePath("/");
+    //revalidatePath("/");
     revalidatePath(`/task/${id}`);
     redirect(`/task/${id}`);
 }
